@@ -13,11 +13,10 @@ body {
 .grid {
     /* width: auto; */
     /* height: 50%; */
-    margin-left: auto;
-    margin-right: auto;
-    gap: 5px;
-    justify-self: center; 
-    
+    margin: 0, auto;
+    /* margin-right: auto; */
+    justify-content: center;
+        gap: 5px;
     display: grid;
     font-size: 50px;
     /* grid-template-columns: repeat(3, auto);

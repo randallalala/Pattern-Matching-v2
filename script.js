@@ -137,8 +137,8 @@ function generatePattern() {
 let grid = document.querySelector(".grid");
 
 function gridSet() {
-    grid.style.setProperty('grid-template-columns', 'repeat(' + startCubesDiv + ', auto)')
-    grid.style.setProperty('grid-template-rows', 'repeat(' + startCubesDiv + ', auto)')
+    grid.style.setProperty('grid-template-columns', 'repeat(' + startCubesDiv + ', 0.1fr)')
+    grid.style.setProperty('grid-template-rows', 'repeat(' + startCubesDiv + ', 0.1fr)')
 }
 gridSet()
 
@@ -175,13 +175,22 @@ gridSet()
        - 4boxes side
     4. x++
 */
+let randomColor = [];
+let randomGenColor = []
+
+for (let i = 0; i < 300; i++) {
+    randomGenColor = Math.floor(Math.random() * 16777215).toString(16);
+    // const randomGenColor = array[i];
+    randomColor.push(randomGenColor);
+    
+}
 
 
 // -------------------------------------------RANDOM COLOR / USER INPUT FUNCTION -------------------------------------------------
 function generateCube() {
     grid.innerHTML = ""
     for (let i = 0; i < gameCubes; i++) {
-        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        // let randomColor = Math.floor(Math.random() * 16777215).toString(16);
         //make i global 
         globalI = i
         //create cube div
@@ -194,7 +203,7 @@ function generateCube() {
         // MAKE CUBE CHILD OF GRID
         grid.appendChild(cube);
         // SET RANDOM COLOR TO NEW DIV
-        document.getElementById(i).style.backgroundColor = `#${randomColor}`;
+        document.getElementById(i).style.backgroundColor = randomColor[i];
         // PUT I IN BOX
         // document.getElementById(i).innerHTML = i;
         document.getElementById(i).addEventListener("click", function () {
