@@ -59,7 +59,7 @@ let gameState = false;
 // let difficulty = document.getElementById("difficulty");
 
 let startCubesDiv = 2;
-let gameCubes = startCubesDiv*startCubesDiv;
+let gameCubes = startCubesDiv * startCubesDiv;
 
 let gameLevel = 1;
 let randomPattern = [];
@@ -74,7 +74,6 @@ document.getElementById("startBtn").addEventListener('click', function () {
 
     if (gameState = true) {
         generatePattern();
-        movesCounter = 1;
         this.style.display = 'none' // hide start button
 
     }
@@ -137,8 +136,8 @@ function generatePattern() {
 let grid = document.querySelector(".grid");
 
 function gridSet() {
-    grid.style.setProperty('grid-template-columns', 'repeat(' + startCubesDiv + ', 0.1fr)')
-    grid.style.setProperty('grid-template-rows', 'repeat(' + startCubesDiv + ', 0.1fr)')
+    grid.style.setProperty('grid-template-columns', 'repeat(' + startCubesDiv + ', 0.01fr)')
+    grid.style.setProperty('grid-template-rows', 'repeat(' + startCubesDiv + ', 0.01fr)')
 }
 gridSet()
 
@@ -156,7 +155,7 @@ gridSet()
 //         if (i == 3) {
 //             gameLevel++
 //         }
-//     }
+//     } 
 // }
 
 /*  **Pseudo code**
@@ -182,7 +181,7 @@ for (let i = 0; i < 300; i++) {
     randomGenColor = Math.floor(Math.random() * 16777215).toString(16);
     // const randomGenColor = array[i];
     randomColor.push(randomGenColor);
-    
+
 }
 
 
@@ -213,6 +212,7 @@ function generateCube() {
             // push selection into array
             playerPattern.push(i);
             compare();
+
         })
     }
 }
@@ -226,13 +226,13 @@ function compare() {
         // console.log(globalIndex + '-Index correct');
         // console.log(playerPattern[globalIndex] + "-playerPattern correct");
         // console.log(randomPattern[globalIndex] + "-randomPattern correct");
-
+        movesCounter++
         if (playerPattern.length == randomPattern.length) {
             globalIndex = 0;
             // console.log("deeeperr");
             if (JSON.stringify(randomPattern) == JSON.stringify(playerPattern)) {
                 // console.log("Correct " + playerPattern);
-                startCubesDiv ++ //var 
+                startCubesDiv++ //var 
                 levelsCompleted++; // levels counter
                 gameLevel++
                 // reset random pattern loop
@@ -244,7 +244,7 @@ function compare() {
                 // } else if (difficulty.value == "extreme") {
                 //     gameLevel += 3; //add 3 more patterns to next sequence
                 // }
-                gameCubes = startCubesDiv*startCubesDiv
+                gameCubes = startCubesDiv * startCubesDiv
                 // win msg on screen
                 gridSet()
                 win();
@@ -279,7 +279,7 @@ function reset() {
 function resetBtn() {
     let resetBtn = document.createElement('button');
     resetBtn.id = "resetBtn";
-    resetBtn.classList.add("btn btn-secondary btn-lg");
+    resetBtn.classList.add = ("btn btn-secondary btn-lg");
     body.appendChild(resetBtn);
     document.getElementById('resetBtn').innerHTML = "Reset Game";
 }
@@ -317,7 +317,7 @@ function win() {
 
 // //---------------------------------------------------- LEVELS COMPLETED  -----------------------------------------------
 
-function level() {  // level counter
+function level() { // level counter
 
     let body = document.querySelector("body");
     let levelIndicator = document.createElement('p');
@@ -329,7 +329,7 @@ function level() {  // level counter
 
 // //----------------------------------------------------- # OF MOVES  -----------------------------------------------------
 
-function moves() {   // moves/click counter
+function moves() { // moves/click counter
 
     let body = document.querySelector("body");
     let moves = document.createElement('p');
